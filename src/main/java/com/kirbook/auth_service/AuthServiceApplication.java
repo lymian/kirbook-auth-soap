@@ -28,7 +28,7 @@ public class AuthServiceApplication implements ApplicationListener<ApplicationRe
 		System.out.println("------------------------");
 		System.out.println("Port: " + port);
 		System.out.println("Name: " + name);
-		System.out.println("SOAP: http://localhost:8081/ws/auth.wsdl");
+		System.out.println("SOAP: http://localhost:" + port + "/ws/auth.wsdl");
 	}
 
 }

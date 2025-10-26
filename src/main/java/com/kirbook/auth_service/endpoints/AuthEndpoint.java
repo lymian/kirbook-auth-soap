@@ -1,5 +1,6 @@
 package com.kirbook.auth_service.endpoints;
 
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.ws.server.endpoint.annotation.Endpoint;
 import org.springframework.ws.server.endpoint.annotation.PayloadRoot;
 import org.springframework.ws.server.endpoint.annotation.RequestPayload;
@@ -20,6 +21,7 @@ import lombok.RequiredArgsConstructor;
 
 @Endpoint
 @RequiredArgsConstructor
+@CrossOrigin(origins = "*")
 public class AuthEndpoint {
 
     private static final String NAMESPACE_URI = "http://kirbook.com/auth"; // usa el mismo namespace del XSD
@@ -52,7 +54,7 @@ public class AuthEndpoint {
 
         return response;
     }
-    
+
     @PayloadRoot(namespace = NAMESPACE_URI, localPart = "ValidateTokenRequest")
     @ResponsePayload
     public ValidateTokenResponse validateToken(@RequestPayload ValidateTokenRequest request) {
@@ -77,7 +79,7 @@ public class AuthEndpoint {
 
         return response;
     }
-    
+
     @PayloadRoot(namespace = NAMESPACE_URI, localPart = "GetUserByIdRequest")
     @ResponsePayload
     public GetUserByIdResponse obtenerUsuarioPorId(@RequestPayload GetUserByIdRequest request) {
